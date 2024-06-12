@@ -55,11 +55,13 @@ const TodoItem = ({ todo }) => {
         )}
       </div>
       <div className="flex w-full p-2 justify-center items-center sm:justify-end gap-4">
-        <button
+       <button
+          disabled={todo.completed}
           onClick={() => toggleEdit(todo.id)}
-          className="p-4 bg-orange-600 rounded-md text-white font-bold hover:bg-orange-500 transition-all"
+          className={`p-4 bg-orange-600 rounded-md ${
+            todo.completed && "cursor-not-allowed opacity-50"
+          } text-white font-bold hover:bg-orange-500 transition-all`}
         >
-          <FaEdit />
         </button>
         <button
           onClick={() => handleDeleteBtn(todo.id)}
