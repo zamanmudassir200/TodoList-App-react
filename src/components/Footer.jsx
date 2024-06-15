@@ -35,7 +35,10 @@ const Footer = () => {
         <div className="">
           <ul className="flex gap-3 text-4xl">
             <li>
-              <a href="">
+              <a
+                href="https://github.com/zamanmudassir200?tab=repositories"
+                target="_blank"
+              >
                 <FaGithub className="hover:bg-purple-950 p-1 rounded-xl hover:-translate-y-2  transition-all hover:text-white" />
               </a>
             </li>
@@ -62,7 +65,10 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <a href="">
+              <a
+                href="https://x.com/ZamanMudassir_2?t=HaSJvg3sijTGj-Pf7gk_Gw&s=09"
+                target="_blank"
+              >
                 <FaTwitter className="hover:bg-purple-950 p-1 rounded-xl transition-all hover:-translate-y-2  hover:text-white" />
               </a>
             </li>
