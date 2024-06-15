@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import TodoItem from "./TodoItem";
 import TodoContext from "../context/TodoContext";
+// import Search from "./Search";
 
 const TodoList = () => {
   const {
@@ -21,19 +22,25 @@ const TodoList = () => {
           No Items Available
         </h1>
       ) : (
-        todos.map((todo) => (
-          <TodoItem
-            key={todo.id}
-            todo={todo}
-            handleCheckBoxInput={handleCheckBoxInput}
-            toggleEdit={toggleEdit}
-            handleEditBtn={handleEditBtn}
-            handleDeleteBtn={handleDeleteBtn}
-            setEditText={setEditText}
-            editText={editText}
-            setShowModal={setShowModal}
-          />
-        ))
+        <>
+          {/* <Search todos={todos} /> */}
+          <div className="flex flex-col  items-center w-full">
+            {todos.map((todo) => (
+              <TodoItem
+                key={todo.id}
+                todo={todo}
+                handleCheckBoxInput={handleCheckBoxInput}
+                toggleEdit={toggleEdit}
+                handleEditBtn={handleEditBtn}
+                handleDeleteBtn={handleDeleteBtn}
+                setEditText={setEditText}
+                editText={editText}
+                setShowModal={setShowModal}
+              />
+              // </div>
+            ))}
+          </div>
+        </>
       )}
     </ul>
   );

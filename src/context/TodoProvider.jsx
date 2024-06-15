@@ -4,6 +4,7 @@ import TodoContext from "./TodoContext";
 const TodoProvider = ({ children }) => {
   const [showModal, setShowModal] = useState(false);
   const [task, setTask] = useState("");
+  const [dateInput, setDateInput] = useState("");
   const [todos, setTodos] = useState([]);
   const [editText, setEditText] = useState("");
   const inputRef = useRef(null);
@@ -18,15 +19,18 @@ const TodoProvider = ({ children }) => {
   const handleTaskInput = (e) => {
     setTask(e.target.value);
   };
-
+  const handleDateInput = (e) => {
+    setDateInput(e.target.value);
+  };
   const handleAddBtn = () => {
-    if (task.trim().length !== 0) {
+    if (task.trim().length !== 0 && dateInput !== "") {
       const newTask = task.trim();
       const todosItemsArr = {
         id: Date.now(),
         text: newTask,
         isEditing: false,
         completed: false,
+        date: dateInput,
       };
       const updatedTodoItemsArr = [todosItemsArr, ...todos];
       setTodos(updatedTodoItemsArr);
@@ -34,6 +38,7 @@ const TodoProvider = ({ children }) => {
 
       window.localStorage.setItem("todos", JSON.stringify(updatedTodoItemsArr));
       setTask("");
+      setDateInput("");
     }
   };
 
@@ -70,6 +75,8 @@ const TodoProvider = ({ children }) => {
   return (
     <TodoContext.Provider
       value={{
+        dateInput,
+        handleDateInput,
         showModal,
         setShowModal,
         task,
