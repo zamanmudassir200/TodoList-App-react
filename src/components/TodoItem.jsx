@@ -15,7 +15,7 @@ const TodoItem = ({ todo }) => {
   } = useContext(TodoContext);
 
   return (
-    <li className="flex justify-center sm:items-center w-[100%] p-4 border-4 text-center sm:text-left flex-wrap sm:flex-nowrap sm:flex-row cursor-pointer border-orange-600 gap-2 rounded-xl">
+    <li className="flex justify-center sm:items-center sm:w-[90%] w-[100%] p-4 border-4 text-center sm:text-left flex-wrap sm:flex-nowrap sm:flex-row cursor-pointer border-orange-600 gap-2 rounded-xl">
       <div className="flex items-center justify-start gap-1 w-[300%]">
         <input
           type="checkbox"
@@ -56,8 +56,11 @@ const TodoItem = ({ todo }) => {
       </div>
       <div className="flex w-full p-2 justify-center items-center sm:justify-end gap-4">
         <button
+          disabled={todo.completed}
           onClick={() => toggleEdit(todo.id)}
-          className="p-4 bg-orange-600 rounded-md text-white font-bold hover:bg-orange-500 transition-all"
+          className={`p-4 bg-orange-600 rounded-md ${
+            todo.completed && "cursor-not-allowed opacity-50"
+          } text-white font-bold hover:bg-orange-500 transition-all`}
         >
           <FaEdit />
         </button>
