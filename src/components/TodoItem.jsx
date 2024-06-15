@@ -16,7 +16,7 @@ const TodoItem = ({ todo }) => {
 
   return (
     <li className="flex justify-center sm:items-center sm:w-[80%] w-[100%] p-4 border-4 text-center sm:text-left flex-wrap sm:flex-nowrap sm:flex-row cursor-pointer border-orange-600 gap-2 rounded-xl">
-      <div className="flex items-center justify-start gap-1 ">
+      <div className="flex items-center justify-start gap-1 break-words w-[300%]">
         <input
           type="checkbox"
           checked={todo.completed}
@@ -25,7 +25,7 @@ const TodoItem = ({ todo }) => {
         />
         {todo.isEditing ? (
           <input
-            className="text-black font-extrabold border-none focus:outline-none w-[100%] text-2xl"
+            className="text-black font-extrabold border-none focus:outline-none break-words w-[100%] text-2xl"
             type="text"
             value={editText}
             onChange={(e) => setEditText(e.target.value)}
@@ -43,7 +43,7 @@ const TodoItem = ({ todo }) => {
           />
         ) : (
           <span
-            className={`flex bg-gray-100 items-center justify-center font-bold ml-2 text-lg ${
+            className={`flex items-start w-[100%] justify-start font-bold ml-2 text-lg  break-all flex-wrap gap-4 ${
               todo.completed ? "line-through" : ""
             }`}
             onClick={() => {
