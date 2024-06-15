@@ -15,8 +15,8 @@ const TodoItem = ({ todo }) => {
   } = useContext(TodoContext);
 
   return (
-    <li className="flex justify-center sm:items-center sm:w-[90%] w-[100%] p-4 border-4 text-center sm:text-left flex-wrap sm:flex-nowrap sm:flex-row cursor-pointer border-orange-600 gap-2 rounded-xl">
-      <div className="flex items-center justify-start gap-1 w-[300%]">
+    <li className="flex justify-center sm:items-center sm:w-[80%] w-[100%] p-4 border-4 text-center sm:text-left flex-wrap sm:flex-nowrap sm:flex-row cursor-pointer border-orange-600 gap-2 rounded-xl">
+      <div className="flex items-center justify-start gap-1 ">
         <input
           type="checkbox"
           checked={todo.completed}
